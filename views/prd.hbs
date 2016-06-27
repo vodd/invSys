@@ -1,0 +1,39 @@
+
+<form class="" action="prd" method="post">
+  <div class="gq gg ala">
+  <input class="form-control" type="text" name="name" placeholder="Produit">
+   </div>
+  <div class="gq gg ala">
+  <input class="form-control" type="text" name="prix" placeholder="prix">
+   </div>
+   <div class="gq gg ala">
+   <input class="form-control" type="text" name="qte" placeholder="Qte">
+    </div>
+  <input class="form-control ce apo" type="submit" value="GO GO">
+</form>
+
+<table class="cl" data-sort="table">
+    <thead class="thead-inverse">
+        <tr>
+            <th>Designation            </th>
+            <th>                Prix unitaire            </th>
+            <th>                Qte             </th>
+            <th>                action            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each data}}
+        <tr>
+
+            <td>
+                    {{this.name}}
+            </td>
+            <td>          {{this.prix}} DA          </td>
+            <td>          {{this.qte}}           </td>
+            <td>
+              <a href="/edit-invoice/{{this.id}}" v-on:click="loadInvoice({{this.id}})" class="ce apo"> <span class="bv xo"></span></a>
+             <a href="/delete-invoice/{{this.id}}" v-on:click="loadInvoice({{this.id}})" class="ce apr"> <span class="bv xn"></span></a> </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

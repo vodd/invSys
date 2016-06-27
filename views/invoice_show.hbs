@@ -1,0 +1,213 @@
+<div id="no">
+<a class="form-control ce app" v-show="seet2" v-model="sea" v-on:click='loadInvoice' value="{{data._id}}">Modifier la facture</a>
+
+  <table class="cl" v-show="seet2">
+    <thead class="thead-inverse">
+      <th>
+        Produits
+      </th>
+      <th>
+        Qte
+      </th>
+      <th>
+        prix 
+      </th>
+      <th>
+          total
+      </th>
+    </thead>
+    <tbody>
+      <div >
+        {{#each data}}
+      {{#each this.product}}
+      <tr>
+        <td>
+          {{this.name}}
+        </td>
+        <td>
+          {{this.qte}}
+        </td>
+        <td>
+          {{this.prix}} DA
+        </td>
+          <td>
+              {{'this.qte * this.prix'}} DA
+          </td>
+      </tr>
+      {{/each}}
+      {{/each}}
+        </div>
+    </tbody>
+  </table>
+
+
+
+  <input class="form-control" type="text" v-show="seet" class="product" name="sea1" v-model="sea1" v-on:keyup="findItem" value="" autocomplete="off">
+  <ul>
+       <li v-for="ite in items.data" v-show="seet" >
+           <a v-on:click="addItem(ite)">${ite.name} ${ite.prix} DA</a>
+       </li>
+   </ul>
+
+  <div v-for="i in prd" v-show="seet">
+  <div class="gq gg ala">
+  <input class="form-control" type="text" class="product" value="${i.name}">
+ </div>
+  <div class="gq gg ala">
+  <input class="form-control" type="number"  v-model="p[$index]" class="product" value="${i.prix}">
+ </div>
+  <div class="gq gg ala">
+  <input class="form-control" type="number" v-model="q[$index]" number value="1">
+  </div>
+  <div class="gq gg ala">
+  <small>  ${p[$index] * q[$index]} Da</small>
+  <button class="ce apo" type="button" v-on:click="addItems(i,q[$index],p[$index])" number value="Ajouter ">
+  <span class="bv ahp"></span>
+  </button>
+   </div>
+ </div>
+<form action="/invoice/{{data._id}}" method="post">
+  <input class="form-control" type="hidden" name="name" value="" >
+  <input class="form-control" type="hidden" name="prix" value="" >
+  <input class="form-control" type="hidden" name="qte" value="" >
+  <table class="cl" v-show="seet">
+   <thead class="thead-inverse">
+       <tr>
+           <th>#</th>
+           <th>name            </th>
+           <th>                total            </th>
+           <th>                action            </th>
+       </tr>
+   </thead>
+    <tbody >
+        <tr v-for="it in final" >
+          <td>
+            <input class="form-control" type="text" name="name" value="${it.name}" >
+          </td>
+          <td>
+             <input class="form-control" type="text" v-model="prix[$index]" v-on:click="mod" name="prix" value="${it.prix}" >
+             </td>
+          <td>
+             <input class="form-control" type="text"  v-model="qte[$index]" v-on:click="mod" name="qte" value="${it.qte}" >
+             </td>
+          <td>
+             <button type="button" class="ce apo" v-on:click="updateItems(it,prix[$index],qte[$index],$index)" name="button">
+               <span class="bv xo"></span>
+             </button>
+             <button type="button" class="ce apr" v-on:click="removeItem($index)" name="button">
+               <span class="bv xn"></span>
+             </button>
+             </td>
+
+        </tr>
+      </tbody>
+    </table>
+    <div class="apu amg da">
+      <p v-show="seet2" class="ani">Le : {{data.date}}</p>
+        <p v-show="seet2" class="ani">Total HT: {{data.ht}} DA</p>
+        <p v-show="seet2" class="ani">TVA : {{data.tva}} DA</p>
+        <p v-show="seet2" class="ani">Total TTC: {{data.total}} DA</p>
+      <p v-show="seet" class="ani">Total : ${tata} DA</p>
+
+ <input type="hidden" name="ht" value="${tata}" >
+ <a href="javascript:window.print()">Imprimer</a>
+<input type="submit" class="ce app" value="Sauvgarder">
+</div>
+</form>
+</div>
+
+<div class="page">
+    <div id="title">
+     <span>Facture N° {{idF}}</span>
+    </div>
+  <address class="soc">
+        <strong>Respawn Agency</strong><br>
+        <strong>Registre de commerce</strong> : 0600069A13<br>
+        <strong>Artilce d'imposition</strong> : 3505-5314969<br>
+        <strong>Matricul fiscal</strong> : 190310100919152<br>
+    </address>
+  {{#each data.client}}
+    <address class="client">
+        <strong>Client</strong> : {{this.name}} <br>
+        <strong>Adresse</strong> : {{this.address}}<br>
+        <strong>Registre de commerce</strong> : {{this.rc}}<br>
+        <strong>Artilce d'imposition</strong> : {{this.ai}}<br>
+        <strong>Matricul fiscal</strong> : {{this.address}}<br>
+    </address>
+  {{/each}}
+  <table class="cl">
+    <thead>
+      <th>
+        Produits
+      </th>
+      <th>
+        Qte
+      </th>
+      <th>
+        prix U.HT
+      </th>
+    </thead>
+    <tbody>
+      <div >
+        {{#each data}}
+      {{#each this.product}}
+      <tr>
+        <td>
+          {{this.name}}
+        </td>
+        <td>
+          {{this.qte}}
+        </td>
+        <td>
+          {{this.prix}} DA
+        </td>    
+      </tr>
+      {{/each}}
+      {{/each}}
+        </div>
+    </tbody>
+  </table>
+  <div class="apu amg da" style="color:#000">
+      <strong>Le  {{data.date}}</strong>
+      <h4 v-show="seet2" class="ani">Total : {{data.ht}} DA</h4>
+      <h4 class="ani">TV : {{data.tva}} DA</h4>
+      <h4 class="ani">TTC: {{data.total}} DA</h4> <br>
+ <input type="hidden" name="total" value="${tata}" >
+
+</div>
+</div>
+<style>
+ @media screen{
+   .page{
+    display: none;
+  }
+ }
+#title{
+ padding:0 0 10% 30% ;
+}
+.soc{
+  width: 10cm;
+  float:left;
+}
+.client{
+  width: 10cm;
+  float:left;
+}
+.page h4{
+  color:#000;
+}
+@media print {
+  body {    
+    margin: 1.6cm 0 0 0;
+    box-shadow: 0;
+    color:#000;
+    width: 210mm;
+  }
+  .page{
+  }
+  .ch, #no,.apa,.aky{
+    display:none;
+  }
+}
+</style>
+<script type="text/javascript" src="../javascripts/invoice_show.js"></script>

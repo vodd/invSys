@@ -1,0 +1,107 @@
+
+<form action="/quota" method="post">
+    <div class="fu apt">
+      <div class="gq gg ala">
+      <input class="form-control" list="browsers" name="namec" type="text" v-model="sea" v-on:keyup="loadClients" value="${cli.name}" autocomplete="off">
+      </div>
+        <div class="gq gg ala">
+     <input class="form-control " type="text" name="address" value="${cli.address}">
+     </div>
+       <div class="gq gg ala">
+     <input class="form-control " type="text" name="rc"  value="${cli.rc}">
+       </div>
+       <div class="input-group gq gg ala">
+     <input class="form-control " type="text" v-model="tva"  value="17">
+     <div class="input-group-addon">%</div>
+     </div>
+          <ul v-show="seethem">
+      <li v-for="client in clients.data">
+           <a v-on:click="getClient(client)">${client.name}</a>
+      </li>
+     </ul>
+          <div class="gq gg ala date">
+     <input class="form-control " type="text" name="date"  data-provide="datepicker" data-date-format="dd/mm/yyyy" value="">
+       </div>
+
+
+     </div>
+
+     <div class="item">
+     <h3>list de produits</h3>
+     <input type="text" class="form-control product" name="sea1" v-model="sea1" v-on:keyup="findItem" value="" autocomplete="off" placeholder="trouvé un produit">
+     <ul>
+          <li v-for="ite in items.data" v-show="seet2" >
+              <a v-on:click="addItem(ite)">${ite.name} ${ite.prix}</a>
+          </li>
+      </ul>
+      </div>
+     <div v-for="i in item" v-show="seet">
+       <div class="gq gg ala">
+  	   <input type="text" class="form-control" value="${i.name}" disabled>
+       </div>
+       <div class="gq gg ala">
+  	   <input type="number"  v-model="prixz[$index]" class="form-control" value="${i.prix}">
+       </div>
+       <div class="gq gg ala">
+  	   <input type="number" v-model="qtez[$index]" class="form-control" number value="1">
+       </div>
+       <div class="gq gg ala">
+        <small>${prixz[$index] * qtez[$index]} DA</small>
+      <button type="button" v-on:click="addItems(i,qtez[$index],prixz[$index])" class="ce apo" number value="Ajouter ">
+        <span class="bv ahp"></span>
+      </button>
+       </div>
+      </div>
+
+
+   <input type="hidden" name="name" value="" >
+   <input type="hidden" name="prix" value="" >
+   <input type="hidden" name="qte" value="" >
+
+
+       <table class="cl" >
+           <thead class="thead-inverse">
+               <tr>
+                   <th>#</th>
+                   <th>name            </th>
+                   <th>                total            </th>
+                   <th>                action            </th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr v-for="it in final">
+                 <td>
+                   <input type="text" class="form-control " name="name" value="${it.name}" disabled>
+                 </td>
+                   <td>
+                     <input type="text" class="form-control "  v-model="prix[$index]" name="prix" value="${it.prix}" >
+                   </td>
+                   <td>
+                    <input type="text"  class="form-control "  v-model="qte[$index]" name="qte" value="${it.qte}" >
+                   </td>
+                   {{!-- <td>
+                    <input type="text"  class="form-control " name="qte" value="${it.qte * it.prix}" >
+                   </td> --}}
+                   <td>
+                     <button type="button" class="ce apo"  v-on:click="updateItems(it,prix[$index],qte[$index],$index)">
+                       <span class="bv xo"></span>
+                     </button>
+                     <button type="button" class="ce apr"  v-on:click="removeItem($index)">
+                       <span class="bv xn"></span>
+                     </button>
+                   </td>
+                 </tr>
+
+
+
+           </tbody>
+             </table>
+               <div class="apu amg da">
+             <h4 class="ani">Total : ${tata} DA</h4>
+             <h4 class="ani">TV : ${tata * tva / 100} DA</h4>
+             <h4 class="ani">TTC: ${tata + tata * tva / 100} DA</h4> <br>
+        <input type="hidden" name="total" value="${tata}" >
+  <input type="submit" class="ce app" value="Sauvgarder">
+</div>
+</form>
+<script type="text/javascript" src="../javascripts/invoice.js"></script>

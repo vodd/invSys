@@ -1,0 +1,153 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <title>
+
+        invoice mangaer
+
+    </title>
+    <script type="text/javascript" src="../javascripts/vue.js"></script>
+         <script src="http://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.16/vue-resource.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/0.7.10/vue-router.min.js"></script>
+    </head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
+
+      <link href="../stylesheets/toolkit-inverse.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.js"></script>
+    <link href="../stylesheets/application.css" rel="stylesheet">
+
+    <style>
+      /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+      /* this chunk of css is not part of the toolkit :) */
+      body {
+        width: 1px;
+        min-width: 100%;
+        *width: 100%;
+      }
+    </style>
+  </head>
+
+  <body id="app">
+
+      
+<div class="aou">
+
+  <nav class="ch">
+    <a class="aov" href="../index.html">
+      <span class="bv act aow"></span>
+    </a>
+    <div class="aoz">
+      <ul class="nav of aox">
+        <li >
+          <a href="/" title="Facture & devis" data-toggle="tooltip" data-placement="right" data-container="body">
+            <span class="bv abw"></span>
+            <small class="aoy sa">Facture & devis</small>
+          </a>
+        </li>
+        <li >
+          <a href="/client" title="clients" data-toggle="tooltip" data-placement="right" data-container="body">
+            <span class="bv aji"></span>
+            <small class="aoy sa">clients</small>
+          </a>
+        </li>
+        <li >
+          <a href="/quota" title="Créer un devis" data-toggle="tooltip" data-placement="right" data-container="body">
+            <span class="bv aie"></span>
+            <small class="aoy sa">Créer un devis</small>
+          </a>
+        </li>
+        <li >
+          <a href="/invoice" title="Créer une facture" data-toggle="tooltip" data-placement="right" data-container="body">
+            <span class="bv aid"></span>
+            <small class="aoy sa">Créer une facture</small>
+          </a>
+        </li>
+        <li >
+          <a href="/prd" title="Docs" data-toggle="Produits" data-placement="right" data-container="body">
+            <span class="bv ade"></span>
+            <small class="aoy sa">Produits</small>
+          </a>
+        </li>
+        <li class="active">
+          <a href="#" title="Statistique" data-toggle="tooltip" data-placement="right" data-container="body">
+            <span class="bv vd"></span>
+            <small class="aoy sa">Statistique</small>
+          </a>
+        </li>        
+      </ul>
+    </div>
+  </nav>
+
+          <div class="bw">
+            <div class="apa">
+      <div class="apb">
+        <h6 class="apd">Dashboards</h6>
+        <h2 class="apc">{{title}}</h2>
+      </div>
+
+      <div class="ob ape">
+        <div class="tn aol">
+          <form action="/findata" method="post" class="aor">
+          <input type="text" name="date" class="form-control datepicker" style="color:#fff" value="" >
+         <button type="submit" class="fm">
+                    <span class="bv adn"></span>
+                  </button>
+           </form>
+        </div>
+      </div>
+    </div>
+
+    <hr class="aky">
+      {{{body}}}
+          </div>
+        </div>
+      </div>
+
+      <div id="docsModal" class="cb fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="ri">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Example modal</h4>
+          </div>
+          <div class="modal-body">
+            <p>You're looking at an example modal in the dashboard theme.</p>
+          </div>
+          <div class="rj">
+            <button type="button" class="ce fh" data-dismiss="modal">Cool, got it!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+        <script src="../javascripts/jquery.min.js"></script>
+        <script src="../javascripts/chart.js"></script>
+        <script src="../javascripts/tablesorter.min.js"></script>
+        <script src="../javascripts/toolkit.js"></script>
+        <script src="../javascripts/application.js"></script>
+        <script src="../javascripts/date-fr.js"></script>
+        <script>
+          // execute/clear BS loaders for docs
+          $(function(){while(window.BS&&window.BS.loader&&window.BS.loader.length){(window.BS.loader.pop())()}})
+        $('.datepicker').datepicker({
+            language: 'fr',
+            setDate: new Date(),
+            autoclose: true,
+            todayBtn: "linked",
+            todayHighlight: true
+        });
+        </script>
+      </body>
+    </html>
