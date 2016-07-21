@@ -3,7 +3,6 @@ var router = express.Router();
 var invoices = require('../model/invoice.js');
 var quotas = require('../model/quota.js');
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
       quotas.find(function(err,data){
         if(err){

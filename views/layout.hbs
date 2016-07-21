@@ -15,6 +15,14 @@
         invoice mangaer
 
     </title>
+      <script src="/javascripts/react.js"></script>
+      <script src="/javascripts/react-dom.js"></script>
+      <script src="/javascripts/browser.js"></script>
+      <script src="/javascripts/jquery.js"></script>
+      <script src="/javascripts/components/purchaseComp.js" type="text/babel"></script>
+      <script src="/javascripts/components/prdpurchase.js" type="text/babel"></script>
+
+
     <script type="text/javascript" src="../javascripts/vue.js"></script>
          <script src="http://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.16/vue-resource.min.js"></script>
          <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/0.7.10/vue-router.min.js"></script>
@@ -24,7 +32,8 @@
       <link href="../stylesheets/toolkit-inverse.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.js"></script>
-    <link href="../stylesheets/application.css" rel="stylesheet">
+  <link href="../stylesheets/application.css" rel="stylesheet">
+  <link href="../stylesheets/select2.min.css" rel="stylesheet" />
 
     <style>
       /* note: this is a hack for ios iframe for bootstrap themes shopify page */
@@ -73,11 +82,23 @@
           </a>
         </li>
         <li >
-          <a href="/prd" title="Docs" data-toggle="Produits" data-placement="right" data-container="body">
+          <a href="/prd" title="Produits" data-toggle="Produits" data-placement="right" data-container="body">
             <span class="bv ade"></span>
             <small class="aoy sa">Produits</small>
           </a>
         </li>
+          <li >
+              <a href="/purchase" title="Gestion d'achat" data-toggle="Produits" data-placement="right" data-container="body">
+                  <span class="bv ade"></span>
+                  <small class="aoy sa">Produits</small>
+              </a>
+          </li>
+          <li >
+              <a href="/provider" title="Fournisseur" data-toggle="Produits" data-placement="right" data-container="body">
+                  <span class="bv ade"></span>
+                  <small class="aoy sa">Fournisseur</small>
+              </a>
+          </li>
         <li class="active">
           <a href="#" title="Statistique" data-toggle="tooltip" data-placement="right" data-container="body">
             <span class="bv vd"></span>
@@ -137,6 +158,7 @@
         <script src="../javascripts/tablesorter.min.js"></script>
         <script src="../javascripts/toolkit.js"></script>
         <script src="../javascripts/application.js"></script>
+        <script src="../javascripts/select2.full.min.js"></script>
         <script src="../javascripts/date-fr.js"></script>
         <script>
           // execute/clear BS loaders for docs
@@ -149,5 +171,8 @@
             todayHighlight: true
         });
         </script>
+<script type="text/javascript">
+    $('select').select2();
+</script>
       </body>
     </html>

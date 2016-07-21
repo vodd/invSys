@@ -1,0 +1,74 @@
+<form class="" action="/provider" method="post">
+    <div class="gq gg ala">
+        <input class="form-control" type="text" name="name" placeholder="Nouveau Fournisseur">
+    </div>
+
+    <div class="gq gg ala">
+        <input class="form-control" type="text" name="address" placeholder="Address">
+    </div>
+
+    <div class="gq gg ala">
+        <input class="form-control" type="text" name="tel" placeholder="Telephone">
+    </div>
+    <div class="gq gg ala">
+        <input class="form-control" type="text" name="email" placeholder="Email">
+    </div>
+    <div class="gq gg ala">
+        <input class="form-control" type="text" name="rc" placeholder="Registre de commerce">
+    </div>
+    <div class="gq gg ala">
+        <input class="form-control" type="text" name="ai" placeholder="Article d'imposition">
+    </div>
+    <div class="gq gg ala">
+        <input class="form-control" type="text" name="nif" placeholder="Mat fiscal">
+    </div>
+    <div class="gq gg ala">
+        <input class="form-control" type="text" name="nis" placeholder="Identification Statistique">
+    </div>
+
+    <input class="form-control ce apo" type="submit" value="Ajouter">
+
+</form>
+<br>
+<div class="bs" data-example-id="">
+    <div class="anv">
+        <h3 class="anw anx">
+            Liste des Clients
+        </h3>
+    </div>
+</div>
+<br>
+<table class="cl" data-sort="table">
+    <thead class="thead-inverse">
+    <tr>
+        <th>Nom</th>
+        <th>Adresse</th>
+        <th>Telephone</th>
+        <th>RC</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each data}}
+        <tr>
+            <td>
+                {{this.name}}
+            </td>
+            <td>
+                {{this.address}}
+            </td>
+            <td>
+                {{this.tel}}
+            </td>
+            <td>
+                {{this.rc}}
+            </td>
+            <td>
+                <a href="/provider-show/{{this._id}}" class="ce apn"><span class="bv aae"></a>
+                <a href="/edit-provider/{{this._id}}" class="ce apo"><span class="bv xo"></a>
+                <a href="/delete-provider/{{this._id}}" class="ce apr"><span class="bv xn"></a>
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

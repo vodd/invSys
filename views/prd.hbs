@@ -17,7 +17,9 @@
         <tr>
             <th>Designation            </th>
             <th>                Prix unitaire            </th>
+            <th>                Prix D'achat            </th>
             <th>                Qte             </th>
+            <th>                Dernier modification             </th>
             <th>                action            </th>
         </tr>
     </thead>
@@ -30,8 +32,9 @@
             </td>
             <td>          {{this.prix}} DA          </td>
             <td>          {{this.qte}}           </td>
+            <td>          {{this.updatedAt}}           </td>
             <td>
-              <a href="/edit-invoice/{{this.id}}" v-on:click="loadInvoice({{this.id}})" class="ce apo"> <span class="bv xo"></span></a>
+             <a href="/edit-invoice/{{this.id}}" v-on:click="loadInvoice({{this.id}})" class="ce apo"> <span class="bv xo"></span></a>
              <a href="/delete-invoice/{{this.id}}" v-on:click="loadInvoice({{this.id}})" class="ce apr"> <span class="bv xn"></span></a> </td>
         </tr>
         {{/each}}

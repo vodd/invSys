@@ -1,0 +1,79 @@
+<form class="" action="/edit-provider" method="post">
+    {{#each data}}
+    <div class="gq gg ala">
+
+        <input class="form-control" type="text" name="name" placeholder="votre nom" value="{{this.name}}">
+    </div>
+
+    <div class="gq gg ala">
+
+        <input class="form-control" type="text" name="address" placeholder="votre address"  value="{{this.address}}">
+    </div>
+
+    <div class="gq gg ala">
+
+        <input class="form-control" type="text" name="tel" placeholder="votre RC" value="{{this.tel}}">
+    </div>
+    <div class="gq gg ala">
+
+        <input class="form-control" type="text" name="email" placeholder="votre RC" value="{{this.email}}">
+    </div>
+    <div class="gq gg ala">
+
+        <input class="form-control" type="text" name="rc" placeholder="votre RC" value="{{this.rc}}">
+    </div>
+    <div class="gq gg ala">
+
+        <input class="form-control" type="text" name="ai" placeholder="votre RC" value="{{data.ai}}">
+    </div>
+    <div class="gq gg ala">
+
+        <input class="form-control" type="text" name="nif" placeholder="votre RC" value="{{this.nif}}">
+    </div>
+    <div class="gq gg ala">
+
+        <input class="form-control" type="text" name="nis" placeholder="votre RC" value="{{this.nis}}">
+    </div>
+
+    <input  type="hidden" name="id" value="{{this._id}}">
+    <input class="form-control ce apo" type="submit" value="GO GO">
+    {{/each}}
+</form>
+
+<br>
+<div class="bs" data-example-id="">
+    <div class="anv">
+        <h3 class="anw anx">
+            Dernières factures
+        </h3>
+    </div>
+</div>
+<table class="cl" data-sort="table">
+    <thead class="thead-inverse">
+    <tr>
+        <th>#</th>
+        <th>name</th>
+        <th>Date</th>
+        <th>total</th>
+        <th>action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each d}}
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                {{#each this.product}}
+                    {{this.name}}
+                {{/each }}
+            </td>
+            <td>{{this.date}} </td>
+            <td>          {{this.total}} DA            </td>
+            <td><a href="/edit-invoice/{{this.id}}" v-on:click="loadInvoice({{this.id}})" class="ce apo"><span class="bv xo"></a>
+                <a href="/delete-invoice/{{this.id}}" v-on:click="loadInvoice({{this.id}})" class="ce apr"><span class="bv xn"></a>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

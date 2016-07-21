@@ -1,11 +1,12 @@
-
-
-<form action="/invoice" method="post">
+<form action="/invoice" method="post" xmlns:v-on="http://www.w3.org/1999/xhtml">
     <div class="fu apt">
       <div class="gq gg ala">
       <input class="form-control" list="browsers" name="namec"  v-model="sea" v-on:keyup="loadClients" value="${cli.name}" >
           <datalist  id="browsers"  >
-              <button v-for="client in clients.data" v-on:click="getClient(client)">${client.address}</button >
+              <select name="adresse" id="adresse">
+                  <option v-for="client in clients.data" v-on:click="getClient(client)">${client.name}</option>
+              </select>
+
           </datalist>
       </div>
         <div class="gq gg ala">

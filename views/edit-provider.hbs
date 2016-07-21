@@ -1,0 +1,43 @@
+<form class="" action="/edit-provider" method="post">
+
+    {{#each data}}
+    <div class="gq gg ala">
+
+        <input class="form-control" type="text" name="name" placeholder="votre nom" value="{{this.name}}">
+    </div>
+
+    <div class="gq gg ala">
+
+        <input class="form-control" type="text" name="address" placeholder="votre address"  value="{{this.address}}">
+    </div>
+
+    <div class="gq gg ala">
+
+        <input class="form-control" type="text" name="tel" placeholder="votre RC" value="{{this.tel}}">
+    </div>
+    <div class="gq gg ala">
+
+        <input class="form-control" type="text" name="email" placeholder="votre RC" value="{{this.email}}">
+    </div>
+    <div class="gq gg ala">
+
+        <input class="form-control" type="text" name="rc" placeholder="votre RC" value="{{this.rc}}">
+    </div>
+    <div class="gq gg ala">
+
+        <input class="form-control" type="text" name="ai" placeholder="votre RC" value="{{this.ai}}">
+    </div>
+    <div class="gq gg ala">
+
+        <input class="form-control" type="text" name="nif" placeholder="votre RC" value="{{this.nif}}">
+    </div>
+    <div class="gq gg ala">
+
+        <input class="form-control" type="text" name="nis" placeholder="votre RC" value="{{this.nis}}">
+    </div>
+
+    <input  type="hidden" name="id" value="{{this._id}}">
+    <input class="form-control ce apo" type="submit" value="GO GO">
+    {{/each}}
+
+</form>
