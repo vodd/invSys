@@ -9,7 +9,9 @@ var routes = require('./routes/index');
 var client = require('./routes/client');
 var invoice = require('./routes/invoice');
 var quota = require('./routes/quota');
+var provider = require('./routes/provider');
 var prd = require('./routes/prd');
+var purchase = require('./routes/purchase');
 var users = require('./routes/users');
 
 var mongoose = require('mongoose');
@@ -36,7 +38,9 @@ app.use('/users', users);
 app.use('/', invoice);
 app.use('/', prd);
 app.use('/', client);
+app.use('/', provider);
 app.use('/', quota);
+app.use('/', purchase);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

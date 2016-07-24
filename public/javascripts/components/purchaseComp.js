@@ -1,9 +1,7 @@
 var Purchase = React.createClass({
     render: function () {
         return (
-            <div>
                 <SearchPurchase></SearchPurchase>
-            </div>
         )
     }
 });
@@ -11,7 +9,8 @@ var SearchPurchase = React.createClass({
     getInitialState: function () {
         return {
             items: [],
-            isSelected: false
+            selected: [],
+            isSelected: false,
         }
     },
     searchProvider: function ( event ){
@@ -29,58 +28,26 @@ var SearchPurchase = React.createClass({
                     alert(err)
                 }.bind(this),
             })
+
         }
         this.state.isSelected = true
     },
+    getProvider: function ( data ) {
+        this.setState({selected: [data]})
+        this.state.isSelected = false
+        console.log(this.state.selected)
+    },
     render: function () {
         return (
-            <div>
-                <input type="text" placeholder="Fournisseur" onChange={this.searchProvider} aria-autocomplete="list" autoFocus="On" role="textbox" spellcheck="false" autocapitalize="off" autocorrect="off" autocomplete="off" className="form-control select2-search__field"/>
-                {
-                    this.state.isSelected
-                        ?
-                    <Provider data={this.state.items}/>
-                        :null
-                }
-            </div>
-        )
-    }
-});
-var Provider = React.createClass({
-    getInitialState:function(){
-        return {
-            selected: [],
-            isSelected:true
-        }
-    },
-    getProvider:function(data){
-        this.setState({selected:[data]})
-        this.state.isSelected = false
-    },
-    render:function(){
-        var ProvidersNode = this.props.data.map(function(i){
-            return(
-
-                    <option value={i.name} onClick={this.getProvider.bind(this,i)} key={i._id}>
-                        {i.name}
-                    </option>
-
-
-            )
-        }.bind (this));
-        return(
-            <div>
-                {
-                    this.state.isSelected
-                        ?
-                <select className=" js-example-basic-single form-control" multiple="multiple">
-                     {ProvidersNode}
-                </select>
-                        :null
-                }
-                <br/>
-                <ProviderSelected data={this.state.selected}/>
-            </div>
+                    <div className="dropdown">
+                    <input className="dropdown-toggle form-control" data-toggle="dropdown" onChange={this.searchProvider} />
+                            <ul className="dropdown-menu" >
+                                {this.state.items.map(record => ( // implicit return
+                                <li onClick={this.getProvider.bind(this, record)} className="dropdown-item" key={record._id}>{record.name}</li>
+                                ))}
+                            </ul>
+                        <ProviderSelected data={this.state.selected} />
+                    </div>
         )
     }
 });
@@ -90,6 +57,7 @@ var ProviderSelected = React.createClass({
         var ProviderNode = this.props.data.map(function(i){
             return(
                 <div >
+                    <br/>
                     <div className="gq gg ala">
                          <input className="form-control" type="text" value={i.name}/>
                     </div>
